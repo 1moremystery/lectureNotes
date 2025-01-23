@@ -44,7 +44,7 @@ else {
 }
 
 --> is it possible for "statements2" to execute?
-
+no, y can't be 7 and also less than 4
 
 --> what if "y==7" becomes "y > 2"?
 
@@ -61,17 +61,19 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
-    "Ava is a knight and I am a knight"
+
 
 
 What does "neither" mean?
+    Ava and bob are both knights
 
 Rewrite both statements.
 
 
 
 What are Ava and Bob?
-
+    Suppose Ava is knight from her statement, Bob must be a knave. Bob is telling a lie that they are both knights. - Works
+    Suppose Ava is knave, Bob must be a knight. However Bob's statement is false because Ava is a knave, therfore Ava must be a knight.
 
 
 
@@ -95,10 +97,12 @@ What types are Sarah, Bill, and Mae?
 
 (How might we simplify everything?)
 
+Sarah: Bill is a knight
+Bill: Mae is a Knight
 
+Suppose Sarah is a knight, then Bill is a knight, then Mae must also be a knight, Bill would not say Mae is a knave therfore this doesn't work
 
-
-
+Suppose Sarah is a knave, then Bill is a knave, then Mae must also be a knave. Bill would say Mae is a knight, meaning Mae saying that Bill would say she's a knave is false; therfore they're all knaves
 
 
 ////////////////////////////////////
@@ -115,7 +119,10 @@ Unicorn says: "Yesterday was one of my lying days, too."
 
 What day is it?
 
-
+Sunday: Doesnt work Lion is lying, saturday isn’t his lying day.
+Tuesday: Doesnt work for Lion, monday is one of his lying days. Similarly, Wed/Fri/Sat don't work
+Thursday: Wednesday was one of Lion's lying days, and he's telling the truth. Wednesday is not one of Unicorn's lying days and is correctly lying.
+Monday: Works for Lion, but Unicorn should be telling the truth
 
 
 
@@ -136,7 +143,7 @@ The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
 
-
+On everyday except Sunday they should both be saying the same name, therfore it is Sunday and they are both who they say they are.
 
 
 
@@ -165,10 +172,12 @@ The second one says: "I'm Tweedledee!"
 
 Who gets the rattle?
 
-
-
+Suppose 1st twin is telling the truth and the 2nd is lying. Tweedledee owns the rattle, and the second twin is Tweedledum, which means the 1st twin is Tweedledee, the first twin gets the rattle
+Suppose 1st twin is lying, and the 2nd is telling the truth. Tweedledum owns the rattle, and 2nd is Tweedledee, therfore 1st twin gets the rattle.
 
 ///////////////////////////////////////////
+
+(practice)
 
 Based on Shakespeare's "Merchant of Venice".
 
@@ -220,7 +229,7 @@ Bernard says: "At first I didn't know when Cheryl's
 
 Albert says: "Then I also know when Cheryl's birthday is."
 
-
+Can't be may or june since they have unique days. is July 16
 
 ///////////////////////////////////
 
@@ -236,20 +245,20 @@ Basic operations:
 ∧   and
 ∨   or (inclusive or)
 ¬   not
-→   implies
+→   implies (for if/then statements)
 
 
 Basic logic gates (draw on board)
-
+NOT, AND, OR
 
 gates still used to design circuits
 
 
 why do we care about equivalent circuits?
-
+cost less, cause less gates
 
 what about programming?
-
+simplify code
 
 ///////////////////////////////////////////////////
 
@@ -260,28 +269,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    f
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  #  F
+F  #  T
 
 ////////////////////////////////////////////////
 
@@ -299,14 +308,15 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    F     (broken promise)
+F T  #    T
+F F  #    T
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
+if statement
 
 //////////////////////////////////////////
 

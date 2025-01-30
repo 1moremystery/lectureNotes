@@ -15,9 +15,14 @@ Today:
 ////////////////////////////////////////
 
 Reminder: parse trees
+top level operator: thing done last
 
 Example: p ∨ q ∧ r → ¬p → ¬q ∨ s
 
+not
+and
+or
+implies from right to left
 ////////////////////////////////////////
 
 Propositional logic.
@@ -43,29 +48,41 @@ Propositional logic.
 Which ones are propositions? Propositional atoms?
 
 Today is Thursday.
-
+    proposition
+    propositional atom
 
 
 What time is it?
-
+    not proposition
+    not propositional atom
 
 x == 2
-
+    proposition
+    propositional atom
 
 x != 2
-
+    proposition
+    not propositional atom (cause of the not)
 
 Pigs can fly.
-
+    proposition
+    propositional atom
 
 z != 7 && str.contains(sub)
+    proposition
+    not propositional atom (cause its not simplified)
 
 Drive carefully.
+    not proposition
 
 y <= 4
+    proposition
+    propositional atom (if you look at the <= as one operation)
 
 
 I am hungry and thirsty.
+    proposition
+    not propositional atom
 
 
 ////////////////////////////////////////
@@ -80,23 +97,23 @@ Suppose we have these propositional atoms:
 How would we express these as English sentences?
 
     ¬p:
-
+    it is not below freezing
 
     p ∧ q:
-
+    its below freezing and its snowing
 
     p → q :
-
+    if its below freezing then its snowing
 
     ¬p → ¬q:
-
+    if its not below freezing then its not snowing
 
 
     r ∨ s:
-
+    y <=4 || x == 2
 
     ¬r:
-
+    y > 4
 
 
 ////////////////////////
@@ -107,18 +124,21 @@ You can't enroll for the course if you haven't taken the prerequisite.
 
 
 --> what are the propositional atoms?
-
-
+(don't have negation in the propositional atoms)
+p: you can enroll for the course
+q: you have taken the prerequisite
 
 --> translate to propositional logic:
 
+!q -> !p
 
-
+(if you havent taken the prerequisite then you cant enroll for the course)
 
 What is the *contrapositive* of our statement?
 
+p -> q
 
-
+contrapositive: !p -> !q
 
 /////////////
 
@@ -132,11 +152,16 @@ if (x <= 2 || y >= 0) {
 
 How could we write what our if-statement is doing using propositional logic?
 
-
-
 Propositional atoms/translation?
 
+p: x <= 2
+q: y >= 0
+r: z == 17
+s: answer == 25
 
+if all conditions happen, then answer should be 25
+
+(p || q) && !r -> s
 
 //////////////////////////////////
 
@@ -147,9 +172,10 @@ q: I can drive a car
 
 
 1) If I am at least 16 years old, then I can drive a car.
-
+p -> q
 
 2) I'm not at least 16 years old or I can drive a car.
+!p || q
 
 
 
@@ -165,7 +191,7 @@ q: I can drive a car
 
 --> could we PROVE it?
 
-
+the statements are logically equivalent because for each possible input they have the same output 
 
 
 
@@ -189,7 +215,7 @@ if (a == 4 || a == 5) {
 How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
-
+if (a != 5 && a != 5) 
 
 
 
@@ -203,7 +229,7 @@ if (a == 4 && b == 5) {
 How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
-
+if (a != 4 || b != 5){}
 
 
 
@@ -211,9 +237,9 @@ How could we express the NEGATION
 
 DeMorgan's laws in propositional logic:
 
-¬(p ∨ q) is equivalent to...
+¬(p ∨ q) is equivalent to... ¬p && ¬q
 
-¬(p ∧ q) is equivalent to...
+¬(p ∧ q) is equivalent to... ¬p || ¬q
 
 
 --> how can we prove the first of DeMorgan's laws?
@@ -234,7 +260,7 @@ if (Character.isDigit(letter) || num < 10) {
 
 --> how would we negate it without using a ! operator?
 
-
+Character.isDigit(letter) == false && num >= 10
 
 
 
@@ -248,8 +274,11 @@ if ((y >= 4 && num != 14) || x > 0) {
 }
 
 negate it:
+!((y >= 4 && num != 14) || x > 0)
+!(y >= 4 && num != 14) && !(x > 0)
+!(y >= 4 && num != 14) && x <= 0
 
-
+(y < 4 || num == 14) && x <= 0
 
 ///////////////////////
 
@@ -268,6 +297,10 @@ p → q ≡                             (can turn implies into an or)
 
 
 associative laws
+    (2 + 3) + 5 = 2 + (3 + 5)
+
+    (p && q ) && r  vs p && (q && r)
+
 
 
 commutative laws
@@ -283,11 +316,11 @@ commutative laws
 Summary of equivalence.
 
 How do we prove two statements ARE equivalent?
-
+Two truth tables, show both statements have same outputs
 
 
 How do we prove two statements are NOT equivalent?
-
+One truth assignment that have different outputs
 
 
 //////////////////////////
@@ -312,23 +345,23 @@ How could we show it?
 
 Satisfiability.
 
-- definition: 
+- definition: a statement is satisfiable if there exists a truth assignment that makes the statement true
 
 
 - what kind of statement is satisfiable? what kind is not?
-
-
+    satisfiable: contingent, tautology
+    not satisfiable: contradictory
 - is this satisfiable?
 
     (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
 
+yes, satisfiable
 
+p = T
+q = T
+r = T
 
-
-
-
-
-
+to show not satisfiable, needs full truth table
 
 
 SAT

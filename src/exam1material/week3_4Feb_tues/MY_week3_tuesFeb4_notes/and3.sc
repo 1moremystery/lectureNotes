@@ -16,10 +16,9 @@ import org.sireum.justification.natded.prop._
       Proof(
 
       //PROOF GOES HERE
-      1 ( p & q & r ) by Premise,
+      1 ( p & q & r) by Premise,
       2 ( p & q ) by AndE1(1),
-      3 ( r ) by AndE2(1),
-      4 ( q ) by AndE2(2)
+      3 ( q ) by AndE2(2)
     )
     //@formatter:on
   )

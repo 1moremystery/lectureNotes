@@ -1,2 +1,11 @@
 26 implies: →
 170 not:    ¬
+
+∧
+→
+
+in .sc files:
+& to ∧
+| to OR
+|- to conclusion
+-> to →

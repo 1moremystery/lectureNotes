@@ -10,10 +10,9 @@ import org.sireum.justification.natded.prop._
 
 @pure def and2(p: B, q: B, r: B): Unit = {
   Deduce(
-    //@formatter: off
-
     (p, q, r) |- (r & (q & p))
       Proof(
+        //PROOF GOES HERE
 
       //PROOF GOES HERE
       1 ( p ) by Premise,
@@ -22,6 +21,5 @@ import org.sireum.justification.natded.prop._
       4 ( q & p ) by AndI(2,1),
       5 ( r & (q&p)) by AndI(3,4)
     )
-    //@formatter:on
   )
 }

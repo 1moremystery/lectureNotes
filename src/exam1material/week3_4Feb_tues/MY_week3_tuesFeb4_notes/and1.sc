@@ -17,6 +17,7 @@ import org.sireum.justification.natded.prop._
             2 (  c      ) by Premise,
             3 (  b      ) by AndE2(1),
             4 (  b&c    ) by AndI(3, 2)       
+
         )
     )
 }

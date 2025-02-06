@@ -6,6 +6,6 @@
 
 in .sc files:
 & to ∧
-| to OR
+| to ∨
 |- to conclusion
 -> to →

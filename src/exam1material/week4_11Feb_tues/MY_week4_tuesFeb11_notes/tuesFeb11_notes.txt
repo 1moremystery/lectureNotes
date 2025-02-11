@@ -1,7 +1,7 @@
 HW 3 due tonight - don't add parentheses
 
 
-p ∨ q ∨ r
+(p ∨ q) ∨ r
 
 vs
 
@@ -97,7 +97,7 @@ __>:
 
 ////////////////////////////////////////
 
-Example (imply1.logika):
+Example (imply1.sc):
 
 (p ∧ q) → r,  p → q,  p  ⊢ r
 
@@ -133,22 +133,27 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are equivalent?
 
     Approach 1:
+        two deduction proofs, where they flip which one is the premise and other is conclusion
     Approach 2:
+        truth table, can be "combined", w/ both statements in the same table
+        show both statements have same outputs for every possible input
 
 How to prove propositional logic statements are NOT equivalent?
-
+    1 truth assignement where the outputs are different
 
 
 What is satisfiability? 
-
+    true at least once
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
 
     how prove valid?
-
+        truth table?
+        
     how prove invalid?
-
+        1 case where cases are true, but conclusion is false
+        
 
 /////////////////////////////////////////
 

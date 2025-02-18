@@ -8,4 +8,4 @@ in .sc files:
 & to ∧
 | to ∨
 |- to conclusion
--> to →
+__>: to →

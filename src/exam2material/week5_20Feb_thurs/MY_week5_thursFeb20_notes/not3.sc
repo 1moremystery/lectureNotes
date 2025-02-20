@@ -17,7 +17,7 @@ import org.sireum.justification.natded.prop._
           6 ( q ) by ImplyE(1,5),
           7 ( F ) by NegE(6, 3)
         ),
-        8 ( !q ) by NegI(4)
+        8 ( !p ) by NegI(4)
       ),
       9 (!q __>: !p) by ImplyI(2)
     )

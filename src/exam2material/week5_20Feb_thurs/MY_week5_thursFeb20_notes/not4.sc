@@ -21,7 +21,7 @@ import org.sireum.justification.natded.prop._
           //Pbc
           //goal: q
         ),
-        9 (p __>: q) ImplyI(2)
+        9 (p __>: q) by ImplyI(2)
         //implyI p __>: q
     )
   )

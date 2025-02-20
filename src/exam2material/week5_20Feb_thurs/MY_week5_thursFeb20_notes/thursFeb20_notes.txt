@@ -73,7 +73,8 @@ First examples.
 Proof(
     1 ( p )     by Premise,
     2 ( ¬p )    by Premise,
-
+    3 ( F ) by NegE(1,2),
+    4 ( q ) by BottomE(3)
 )
 
 
@@ -83,19 +84,28 @@ p: I go for a walk
 q: I get coffee
 
 Premises:
-p ∨ q: 
-¬p: 
+p ∨ q: I go for a walk or I get coffee
+¬p: I dont go for a walk
 
 Conclusion:
-q: 
+q: I get coffee
 
 
 ( p ∨ q, ¬p ) ⊢ ( q )
 Proof(
     1 ( p ∨ q )     by Premise,
     2 ( ¬p )        by Premise,
-
-    
+    3 SubProof(
+        4 Assume( p ),
+        5 ( F ) by NegE(4,2)
+        6 ( q ) by BottomE(5)
+        //q
+    ),
+    7 SubProof(
+        8 Assume(q)
+    ),
+    9 ( q ) by OrE(1, 3, 7)
+    //OrE on p|q
 )
 
 
@@ -104,7 +114,11 @@ Proof(
 ( ¬¬p ) ⊢ ( p )
 Proof(
     1 ( ¬¬p )   by Premise,
-
+    2 SubProof(
+        3 Assume( !p ),
+        4 (F) by NegE(3,1) //flip numbers
+    )
+    5 (p) by Pbc(2)
     
 )
 
@@ -162,28 +176,34 @@ How do we approach proofs?
 2. Extract all information from premises (∧e, →e)
 3. Look at what you are trying to prove (find top level operator)
 
-    ∧ -
+    ∧ - try to use AndI
 
-    ∨ -
+    ∨ - prove one side then OrI. If Or in premise, use Subproofs and OrE
 
-    → -
+    → - use ImplyI, assume LHS of goal implies to get RHS
 
-    ¬(something) -
+    ¬(something) - NegI, assume "something" and try to get contradiction
 
-    just a propositional atom?
+    just a propositional atom? 
+        Look for that atom in the claims
+
+        If negation is involved, use PbC
 
 
 
 
 After each claim - 
+    scan through previous claims, see if can extract extra
 
 
-Inside a subproof - 
+Inside a subproof - think about goal for subproof
+    plan for which subproof to use
 
 
 
 Doesn't fit a pattern or doesn't work out from above:
-
+    Or statements for OrE,
+    use PbC
 
 
 --> when do we open a subproof?

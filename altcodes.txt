@@ -1,8 +1,10 @@
 26 implies: →
 170 not:    ¬
 
-∧
-→
+∧ and
+→ implies
+∈ exists in
+∉ doesnt exist in
 
 in .sc files:
 & to ∧

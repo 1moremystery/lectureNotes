@@ -17,14 +17,49 @@ NOT equivalent?
     
 if nothing else works do Proof by contradiction, especially if theres negation
 
+SOUNDNESS: everything that is provable is actually true
+
+COMPLETENESS: everything that is true is provable
+
+===
+
+```
+SubProof(\n
+            Assume( P ),
+            ...
+            Q
+        )
+ImplyI: -----------
+          (P → Q)  by ImplyI(Subproof Line Number)
+```
+```
+SubProof(
+            Assume( P ),
+          ... F
+        )
+NegI: ------------------
+              (¬P) by NegI(Subproof Line Number)
+```
 negation-elimination
 a ( p  ) by Justification,
 b ( ¬p ) by Justification,
-c ( F  ) by NegE( w/o not, w/ not)
+c ( F  ) by NegE( w/o neg, w/ neg)
 F here means contradiction
 
+```
+        SubProof(
+            Assume(¬P),
+            ...
+            F
+        )
+PbC:  -------------------
+          P
+```
 
-=========
+===
+
+# Setbuilder 
+
 ∈ exists in
 ∉ doesnt exist in
 

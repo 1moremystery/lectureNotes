@@ -1,13 +1,31 @@
 26 implies: →
 170 not:    ¬
 
-∧ and
+⋀ and
+⋁ or
 → implies
-∈ exists in
-∉ doesnt exist in
 
 in .sc files:
 & to ∧
 | to ∨
 |- to conclusion
 __>: to →
+
+∈ exists in
+∉ doesnt exist in
+
+ℕ: natural numbers
+ℤ: All integers
+ℚ: Rational numbers
+ℝ: real numbers
+ℂ: Complex numbers
+∅: null set
+
+⋂ intersection
+⋃ union
+
+⊆ strict subset
+⊂ subset
+
+∀ - universal quantifier
+∃ - existential quantifier

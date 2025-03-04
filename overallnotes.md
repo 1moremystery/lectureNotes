@@ -58,7 +58,7 @@ PbC:  -------------------
 
 ===
 
-# Setbuilder 
+# Predicate logic 
 
 ∈ exists in
 ∉ doesnt exist in
@@ -75,3 +75,12 @@ PbC:  -------------------
 ℂ: Complex numbers
 
 ∅: null set
+
+⋂ intersection // Only Elements in Both
+⋃ union // Elements off both sets
+
+⊆ strict subset
+⊂ subset
+
+∀ - universal quantifier  // "For All"
+∃ - existential quantifier // "There exists"

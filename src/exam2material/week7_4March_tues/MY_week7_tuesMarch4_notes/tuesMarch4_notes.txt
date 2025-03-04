@@ -28,18 +28,18 @@ Statements:
 
 HasChocolate(M&M's) V ContainsPeanuts(Skittles)
 
-    translation?
+    translation? m&ms have chocoloate or skittles contain peanuts
 
-    true or false?
+    true or false? True
 
 
 ///
 
 ¬(∀ x (HasChocolate(x) → ContainsPeanuts(x)))
 
-    translation?
+    translation? not every candy with chocoloate contains peanuts
 
-    true or false?
+    true or false? True, kit kat doesnt have peanuts
 
 
 
@@ -47,26 +47,28 @@ HasChocolate(M&M's) V ContainsPeanuts(Skittles)
 
 ∀ x (¬ContainsPeanuts(x))
 
-    translation?
+    translation? Every candy doesnt contain peanuts
 
-    true or false?
+    true or false? False, Snickers has peanuts
 
 
 ///
 
 ¬(∃ x IsBrown(x))
 
-    translation?
+    translation? there are no brown candies.
 
-    true or false?
+    true or false? False, Kit Kat, Reeses, and Snickers are brown
 
 ///
 
 ∃ x ¬(HasChocolate(x) ⋀ IsBrown(x))
 
-    translation?
+    translation? there is a candy that doesnt have both chocoloate and brown
 
-    true or false?
+    there is a candy that either doesnt have chocoloate or isnt brown
+
+    true or false? True, skittles isnt chocoloate or brown 
 
 
 
@@ -74,9 +76,9 @@ HasChocolate(M&M's) V ContainsPeanuts(Skittles)
 
 ∃ x (HasChocolate(x) → ContainsPeanuts(x))
 
-    translation?
+    translation? there is a candy and if that candy contains chocoloate then it contains peanuts
 
-    true or false?
+    true or false? True, Skittles doesnt have chocoloate or peanuts, Reeses has chocoloate and peanuts
 
 ////////////////////////
 
@@ -94,33 +96,33 @@ Evaluating predicate logic statements
 
 1) ∀ x P(x)
     translation: all x's are P-ish
-    true when: 
-    false when: 
+    true when: all k in domain are P-ish
+    false when: when a single k in domain where P(k) is false
 
 2) ∃ x P(x)
     translation: there exists an x that is P-ish
-    true when: 
-    false when: 
+    true when: find one k where P(k) is true
+    false when: find all k in domain where P(k) is false
 
 3) ¬(∀ x P(x))
     translation: not all x's are P-ish
-    true when: 
-    false when: 
+    true when: find one k where P(k) is false
+    false when: all k in domain where P(k) is true
 
 4) ¬(∃ x P(x))
     translation: there does not exist an x that is P-ish
-    true when: 
-    false when:
+    true when: one k where P(k) is false
+    false when: all k where P(k) is true
 
 5) ∀ x ¬P(x)
     translation: all x's are not P-ish
-    true when:
-    false when:
+    true when:  all k in domain where all p(k) is false
+    false when: a single k where P(k) is true
 
 6) ∃ x ¬P(x)
     translation: there is an x that is not P-ish
-    true when: 
-    false when: 
+    true when:  one k where P(k) is false
+    false when: all k where P(k) is true
 
 
 /////////////////
@@ -132,19 +134,25 @@ What do these mean in English? Are they true?
 
 
 ∀ n ∃ m (n^2 < m)
-
+    The square of every integer is less than some other integer
 
 
 ∀ x ∃ y (x == y^2)
+    All integers equal the square of some other integer
+    All integers are perfect squares
 
+    False, x = 7, there is no perfect square for 7
 
 
 ∀ n ∃ m (n^2 == m)
+    The square of all integers is some other integer
 
+    True - when you multiply any two integers you get another integer
 
 ∃ m ∀ n (n^2 == m)
+    There is a number that equals the square of every integer
 
-
+    False, there is no number that is the square of everything
 
 /////////////////////////
 
@@ -169,6 +177,12 @@ The difference of two positive integers is
 not necessarily positive
 
 
+∃ x ∃ y (x > 0 & y > 0 & x-y > 0)
+
+¬(∀ x ∀ y (x>0 & y>0 → x-y> 0))
+
+True, x = 5, y = 10, x-y = -5 
+
 /////////////////////////
 
 In-class quiz
@@ -188,7 +202,7 @@ Equivalence: DeMorgan's law (part 1).
 suppose our domain is k1 through kn
 
 
-¬(∃ x P(x)) is  equivalent to...
+¬(∃ x P(x)) is  equivalent to... !(P(k1) V P(K2))
 
 
 
@@ -236,17 +250,23 @@ Domain: students
     wonPrize(x): student x won a prize
     friendsWith(x, y): student x is friends with student y
 
-///
+/// ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
 
 All prize-winners were 5th graders
 
-///
+∀ x (wonPrize(x) -> in5th(x))
+
+    ∃ x (!(wonPrize(x) -> in5th(x)))
+
+/// ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
 
 A 5th grader is friends with all prize winners
 
 ///
 
 A 5th grade prize winner isn't friends with anyone
+
+∃ x ∀ y (is5th(x) & wonPrize(x) & !friendsWith(x,y))
 
 ////////////////////////////////////
 

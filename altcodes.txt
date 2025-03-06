@@ -24,8 +24,8 @@ __>: to →
 ⋂ intersection
 ⋃ union
 
-⊆ strict subset
+⊆ subset (allowing equality)
 ⊂ subset
 
-∀ - universal quantifier
-∃ - existential quantifier
+∀ - universal quantifier (for all)
+∃ - existential quantifier (there exists)

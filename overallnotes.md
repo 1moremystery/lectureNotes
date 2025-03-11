@@ -21,7 +21,7 @@ SOUNDNESS: everything that is provable is actually true
 
 COMPLETENESS: everything that is true is provable
 
-===
+---
 
 # Propositional Logic
 
@@ -58,7 +58,7 @@ PbC:  -------------------
           P
 ```
 
-===
+---
 
 # Predicate logic 
 
@@ -88,14 +88,14 @@ Argument is INVALID: we can find a domain where
 ⋂ intersection // Only Elements in Both
 ⋃ union // Elements off both sets
 
-⊆ strict subset
+⊆ subset (allowing equality)
 ⊂ subset
 
 ∀ - universal quantifier  // "For All"
 ∃ - existential quantifier // "There exists"
 
 ## Rules
-
+All Elimination
 ```
            ∀ ((x: T) => P(x))
 AllE[T]:  ---------------------
@@ -114,6 +114,7 @@ Proof(
     2 Human(Socrates)               by AllE[T](1) (would only work if Socrates is in domain)
 )
 ```
+All Introduction
 ```
             Let (   (a: T) => SubProof(
                 ...
@@ -132,6 +133,7 @@ AllI[T] : -------------------------------
 )),
 10 ( ∀ ((x: T) => P(x)) ) by AllI[T](4)
 ```
+Exists Introduction
 ```
                   P(v)
 ExistsI[T]: ---------------------

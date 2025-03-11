@@ -14,9 +14,9 @@ Today:
 
 Reminder:
 
-AllE
-AllI
-ExistsI
+AllE - when have specific individual
+AllI - subproof (starts w/ let), prove statement with random individual, then claim statement with all
+ExistsI - no subproof, use when have statement about an individual
 
 ////////////////////////
 
@@ -49,6 +49,7 @@ Sets, including:
             R (reals - includes whole numbers, fractions,
             numbers with decimals)
     - union, intersection, difference (-), subsets
+    - Venn diagrams
     - general reasoning about sets
 
 Predicate logic statements, including:
@@ -65,13 +66,7 @@ Predicate logic statements, including:
     using: AllE, AllI, ExistsI
 
 - Using natural deduction to prove two statements are equivalent
-    I would complete two proofs:
 
-    statement1 |- statement2
-
-    and also:
-
-    statement2 |- statement1
 
 
 --> what about predicate logic proof syntax?

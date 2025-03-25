@@ -1,7 +1,7 @@
 Exam 2 discussion.
 
-High: 75/100 
-Average: 100/100
+High: 100/100 
+Average: 75/100
 
 A (90-100): 8 students
 B (80-89): 11 students
@@ -99,9 +99,9 @@ x is students
 
     --> what is this argument saying?
 
-∀ x (P(x) → ¬Q(x)): 
+∀ x (P(x) → ¬Q(x)): Everyone who attends K-state doesnt attend KU
 
-¬(∃ x (P(x) ^ Q(x))): 
+¬(∃ x (P(x) ^ Q(x))): there isnt a student who attends both schools
 
 
 ////////////////////////////

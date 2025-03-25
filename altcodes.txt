@@ -6,15 +6,16 @@
 → implies
 
 in .sc files:
+! to ¬
 & to ∧
 | to ∨
-|- to conclusion
+|- to ⊢
 __>: to →
 
 ∈ exists in
 ∉ doesnt exist in
 
-ℕ: natural numbers
+ℕ: natural numbers (pos integers from 1)
 ℤ: All integers
 ℚ: Rational numbers
 ℝ: real numbers

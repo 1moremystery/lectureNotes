@@ -1,3 +1,7 @@
+Exam grades in Canvas
+- drops lowest among Exam 1, Exam 2, Exam 3,\n
+    *midterm equivalent from final*
+
 
 When is an argument considered valid?
     if every time all the premises are true, then the conclusion
@@ -26,7 +30,7 @@ COMPLETENESS: everything that is true is provable
 # Propositional Logic
 
 ```
-SubProof(\n
+SubProof(
             Assume( P ),
             ...
             Q
@@ -70,6 +74,7 @@ Argument is INVALID: we can find a domain where
     all the premises are true but the conclusion is false
 
 ∈ exists in
+
 ∉ doesnt exist in
 
 ℕ: natural numbers
@@ -85,17 +90,22 @@ Argument is INVALID: we can find a domain where
 
 ∅: null set
 
+---
+
 ⋂ intersection // Only Elements in Both
-⋃ union // Elements off both sets
+
+⋃ union // Elements of both sets
 
 ⊆ subset (allowing equality)
+
 ⊂ subset
 
 ∀ - universal quantifier  // "For All"
+
 ∃ - existential quantifier // "There exists"
 
 ## Rules
-All Elimination
+### All Elimination
 ```
            ∀ ((x: T) => P(x))
 AllE[T]:  ---------------------
@@ -114,7 +124,7 @@ Proof(
     2 Human(Socrates)               by AllE[T](1) (would only work if Socrates is in domain)
 )
 ```
-All Introduction
+### All Introduction
 ```
             Let (   (a: T) => SubProof(
                 ...
@@ -133,7 +143,7 @@ AllI[T] : -------------------------------
 )),
 10 ( ∀ ((x: T) => P(x)) ) by AllI[T](4)
 ```
-Exists Introduction
+### Exists Introduction
 ```
                   P(v)
 ExistsI[T]: ---------------------
@@ -150,4 +160,30 @@ Proof(
 
 (assume "Socrates" was a parameter of type T)
 
+```
+### Exists Elimination
+```
+Let ((a: T) => SubProof(
+        Assume( P(a) ),
+        ∃((x: T) => P(x))       ...
+        Q
+    )),
+ExistsE[T]: ----------------------------------------------------
+                     Q
+
+"a" is our alias for the x where P(x) held
+"a" needs to be a "fresh" name (unused before)
+Q CANNOT include anything about "a"
+
+
+
+Syntax:
+
+1 ( ∃((x: T) => P(x)) )         by Justification,
+2 Let ((a: T) => SubProof(
+    3 Assume ( P(a) ),
+    ...
+    4 ( Q )                     by Justification
+)),
+5 ( Q )                         by ExistsE[T](1, 2)
 ```

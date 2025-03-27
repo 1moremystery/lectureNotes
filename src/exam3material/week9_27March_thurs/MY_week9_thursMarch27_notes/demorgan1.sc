@@ -51,7 +51,7 @@ import org.sireum.justification.natded.prop._
     )
     Proof(
       1 (  !(∃((x: T) => P(x)))   ) by Premise,
-      
+      2 ()
     )
   )
 }

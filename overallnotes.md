@@ -187,3 +187,5 @@ Syntax:
 )),
 5 ( Q )                         by ExistsE[T](1, 2)
 ```
+
+# Mathematical Induction

@@ -51,7 +51,22 @@ import org.sireum.justification.natded.prop._
     )
     Proof(
       1 ( !(∀((x: T) => P(x)) )              ) by Premise,
-
+      2 SubProof(
+        3 Assume(!(∃((x: T) => !P(x)))),
+        4 Let((a:T) => SubProof(
+          5 SubProof(
+            6 Assume(!P(a)),
+            7 (∃((x: T) => !P(x))) by ExistsI[T](6),
+            8 (F) by NegE(7,3)
+            //goal F
+          ),
+          9 (P(a)) by PbC(5)
+        )),
+        10 (∀((x: T) => P(x)) by AllI[T](4),
+        11 (F) by NegE(10,1)
+        //goal: F
+      ),//PbC
+      12 () by PbC()
     )
   )
 }

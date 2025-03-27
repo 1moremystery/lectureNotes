@@ -14,21 +14,30 @@ Proof tactics for predicate logic
 - see if you can do anything right away with the premises
     Which rules? 
 
+    for all, individual: use AllE with that individual
+    claim about an individual: could use ExistsI to make an exists statement
+
 - look at top-level operator for what you are trying to prove
     trying to prove a "for all" statement with ∀?
 
+        use AllI subproof
+        name individual, by end of proof prove the goal
 
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
+            use ExistsI w/ statement
 
         could I use AllE for an individual with an all statement?
+            
 
         do I have a "there exists" statement as a claim?
+
 
         do I have an OR statement as a claim?
 
         really can't find anything? 
+            try PbC/ reach contradiction
 
 
     trying to prove -> 
@@ -79,10 +88,17 @@ We want to prove that for any positive integer n:
     1 + 2 + ... + n = n*(n+1)/2
 
 
+(Carl Gauss)
+
+
 Try it out first.
     n = 1?
+        1 = (1*(2))/2 = 1
+    
     n = 2?
+        1+2 = 3 = 2*(3)/2 = 3
     n = 3?
+        = 6 = 3(4)/2 = 6
 
 
 
@@ -105,11 +121,14 @@ The induction domino effect:
 
 
 What is this saying?
-    P(1)? base case (show our claim is true for first element in our domain)
+    P(1)? base case (show our claim is true for smallest n in our domain)
 
 
     ∀ k (P(k) → P(k+1))? inductive step
         (how do we prove this kind of thing?)
+        pick random k in domain
+        assume P(k) (inductive hypothesis)
+        try to prove P(k+1)
 
 
 Putting it all together:
@@ -118,7 +137,8 @@ Putting it all together:
 
 
 
-IF ??? THEN ???
+IF I can prove the base case, and I can prove the inductive step 
+THEN I've proved it for all numbers in the domain
 
 
 
@@ -139,7 +159,16 @@ We want to prove that for any positive integer n:
 
 Proof by induction.
 
+Base Case. Prove for n = 1.
+Inductive step. We assume the inductive hypothesis 
+    k*(k+1)/2 
+    holds for some fixed k in our domain. We must prove that 
+    1 + 2 + ... + k + (k+1) = (k+1)*((k+1)+1)/2
 
+    1 + 2 + ... + k + (k+1) = k*((k+1)+1)/2 + (k+1) by inductive hypothesis
+                            = (k(k+1)+2(k+1))/2
+                            = (k+1)((k+1)+1)/2
+                            = (k+1)*((k+1)+1)/2
 
 /////////////////////////////////
 

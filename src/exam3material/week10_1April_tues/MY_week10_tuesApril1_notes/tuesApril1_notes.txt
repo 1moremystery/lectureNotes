@@ -18,9 +18,9 @@ HW 8 due tonight
 
         n! = 
 
-        (n+1)! = 
+        (n+1)! = (n+1)*n!
 
-        (n+2)! = (
+        (n+2)! = (n+2)*(n+1)*n!
 
 
 HW 9 will be posted after class
@@ -55,18 +55,34 @@ Reminder: Induction template.
 
 Example: Prove that the sum of the first n odd numbers is n^2.
 
-    (what is our domain?)
-
+    (what is our domain?) natural numbers
+    (Base case: n=1)
 
 How can we express the sum of the first n odd numbers more formally?
 
+1 + 3 +... (2n-1)
 
 
 So, what is our claim?
-
+For each natural number N, we want to prove: 1 + 3 + ... + (2n-1) = n^2
 
 
 Proof by induction.
+
+Base case, prove claim holds for n = 1,
+    1 = 1^2
+the base case holds
+
+We assume the inductive hypothesis that:
+    1 + 3 +... (2k-1) = k^2
+for some fixed natural number k. We must show that:
+    1 + 3 + ... (2k-1) + (2(k+1)-1) = (k+1)^2
+
+WE have that:
+    1 + 3 + ... (2k-1) + (2(k+1)-1) = k^2 + (2k + 1) using inductive hypothesis
+                                    = (k+1)^2 by factoring
+
+The inductive step holds, this proves the claim for all natural numbers n.
 
 
 /////////////////////////////////
@@ -74,13 +90,26 @@ Proof by induction.
 Example: Prove that 3^n - 1 is even for all positive integers n.
 
 
+
 what does "even" mean? 
 
+(even: multiple of 2, no remainder when divided by 2)
 
 
 Proof by induction.
 
+Base case. 3^n -1 is even 
+3^1 -1 = 2 which is even
 
+inductive step. We assume the inductive hypothesis that for some positive integer k, 3^k -1 is even.
+
+we have that
+    3^(k+1) - 1 =
+                = 3 * (3^k) - 1 
+                = 3 * (3^k - 1) + 3 - 1
+                = 3 * (3^k -1) + 2 
+
+We know 3^k -1 we know is even by inductive hypothesis, so 3*3^(k) - 1 is also even...
 
 //////////////////////////////////
 
@@ -110,8 +139,9 @@ f(n) = 2f(n-1) + 3, for n > 1
 
 
 What is f(3)?
-
-
+    f(3) = 2f(2) + 3 = 2(9) + 3 = 21 
+    f(2) = 2f(1) + 3 = 2(3) + 3 = 9
+    f(1) = 3
 
 
 
@@ -125,9 +155,11 @@ g(n) = n * g(n-1), for n > 1
 
 n  | g(n)
 ---------
-1  | 
-2  | 
-3  | 
+1  | 1
+2  | 2
+3  | 6
+
+= n!
 
 
 
@@ -139,9 +171,18 @@ Write a recursive definition.
 
 Over natural numbers.
 
-Base case?
-Recursive case?
+Base case? 
+f(1) = 1
 
+Recursive case?
+f(n)= f(n-1) + (n-1) for all n > 1
+
+n   |   f(n)
+------------
+1   |   1
+2   |   2
+3   |   4
+4   |   7
 
 ////////////////////////////////
 
@@ -156,8 +197,8 @@ Recursive case: x ∈ S ⋀ y ∈ S → xy ∈ S
 
 --> what are the elements in S?
 
-
-
+{1, 2, 4, 8, 16 }
+(powers of 2)
 
 
 
@@ -165,13 +206,12 @@ Recursive case: x ∈ S ⋀ y ∈ S → xy ∈ S
 
 Write a recursive definition for the set {1, 3, 5, 7, ...}
 
-
-
+Base case: 1 ∈ S
+Recursive case: x ∈ S → x+2 ∈ S
 
 ////////////////////////////////
 
 (in-class quiz)
-
 
 ////////////////////////////////
 
@@ -235,17 +275,23 @@ Example: prove that the product of two even integers is even.
 If our domain is integers and we have the predicate Even(x), how
 would you write this statement in predicate logic?
 
-
-
+∀ x ∀ y (Even(x) & Even(y) → Even(xy)) 
 
 
 What's the idea of proving this in predicate logic?
 
-
-
+Pick 2 ranom individuals, maybe n, and m
+Assume Even(n)) & Even(m)
 
 Direct proof:
 
+Let n and m be even integers. Since n is even, then n = 2k for some integer k. Since m is even then m = 2b for some integer b.
+    nm = 2k2b
+       = 2(2kb)
+
+Thus nm = 2w where w is the integer 2k2b, thus nm is even
+
+(want to show nm is even )
 
 
 

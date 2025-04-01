@@ -189,3 +189,57 @@ Syntax:
 ```
 
 # Mathematical Induction
+
+## Induction Template
+
+1) Label the base case. Prove the claim is true for the smallest element 
+    in your domain.
+
+
+2) Label the inductive step. State the inductive hypothesis:
+        "We assume the inductive hypothesis: that ***insert claim*** holds 
+        for some fixed k in ***insert domain***."
+
+    Prove that the claim holds for k+1 (you will need to use your inductive
+    hypothesis).
+
+
+3) Summarize: "It follows by induction that ***insert claim*** holds 
+    for all ***insert domain***."
+
+
+## Recursively defined functions.
+
+
+To define a function whose domain is the set of natural numbers
+(or some other set of integers with a lowest value)
+
+Base case: Specify the value of the function at 1 (or some other
+    lowest value). (There may be more than one base case.)
+
+
+Recursive step: Give a rule for finding the value of the function
+    at all bigger integers in our domain using its smaller values
+
+Example
+```
+f(1) = 3
+f(n) = 2f(n-1) + 3, for n > 1
+
+What is f(3)?
+    f(3) = 2f(2) + 3 = 2(9) + 3 = 21 
+    f(2) = 2f(1) + 3 = 2(3) + 3 = 9
+    f(1) = 3
+```
+
+## Definitions.
+
+
+An integer n is *even* if n = 2k for some k ∈ ℤ.
+
+
+
+An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
+
+Any integer that is not odd is even,
+and any integer that is not even is odd.

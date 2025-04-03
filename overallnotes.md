@@ -232,6 +232,47 @@ What is f(3)?
     f(1) = 3
 ```
 
+## Contrapositive
+What is the contrapositive of P → Q?
+
+¬Q → ¬P
+
+```
+Proof by contrapositive template:
+
+Assume ¬Q
+...
+Goal: ¬P
+```
+
+## Proof by contradiction.
+
+- same idea as PbC in natural deduction
+
+- assume that what you are trying to prove is not true
+
+- try to get a contradiction
+
+- conclude what you are trying to prove is true after all
+
+### Proof by contradiction template 1 (trying to prove P)
+
+
+Suppose, for the sake of contradiction, ¬P.
+...
+C ^ ¬C.
+
+We have a contradiction between C and ¬C, so P must hold.
+
+### Proof by contradiction template 2 (trying to prove If P, then Q):
+
+
+Assume P.
+Suppose, for the sake of contradiction, ¬Q.
+...
+C ^ ¬C.
+We have a contradiction between C and ¬C, so Q must hold.
+
 ## Definitions.
 
 
@@ -243,3 +284,4 @@ An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
 
 Any integer that is not odd is even,
 and any integer that is not even is odd.
+

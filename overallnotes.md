@@ -285,3 +285,41 @@ An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
 Any integer that is not odd is even,
 and any integer that is not even is odd.
 
+# Programming Logic
+Algebra(m,n) line order doesn't matter
+
+**Subst_<(find replace, line to rewrite)**
+```
+Can only use when theres a non-algebra statement (ie and, or, imply)
+Deduce( //m,n,j are line numbers
+    ...
+    m ( LHS_M == RHS_M ),      //must be an equivalence
+    ...
+    n ( claim1 ),
+    ...
+    j ( claim2 )              by Subst_<(m, n)
+)
+
+claim2 rewrites claim1 by substituting all occurrences of
+    LHS_M with RHS_M
+    (the < points at the value we are REPLACING in the find/replace line)
+```
+**Subst_>(m, n)**
+```
+Deduce( //m,n,j are line numbers
+    ...
+    m ( LHS_M == RHS_M ),      //must be an equivalence
+    ...
+    n ( claim1 ),
+    ...
+    j ( claim2 )             by Subst_>(m, n)
+)
+
+claim2 rewrites claim1 by substituting all occurrences of
+    RHS_M with LHS_M
+```
+
+If you change the value of variable "name", write that claim
+using:
+
+Old(name)

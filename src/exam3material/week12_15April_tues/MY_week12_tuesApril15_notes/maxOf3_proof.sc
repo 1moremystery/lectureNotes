@@ -43,8 +43,10 @@ if (a >= b) {
   Deduce(
     //FILL IN
     //what can we state as premises?
-
-
+    1 (max == a | max == b | max == c) by Premise,
+    2 (max >= a) by Premise,
+    3 (max >= b) by Premise,
+    4 (max >= c) by Premise
   )
 } else {
   if (b >= c) {

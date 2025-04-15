@@ -288,6 +288,21 @@ and any integer that is not even is odd.
 # Programming Logic
 Algebra(m,n) line order doesn't matter
 
+**Algebra* (or Algebra T)**
+```
+    var x: Z = 2
+
+    Deduce(
+        1 ( x == 2 ) by Premise,
+        2 ( x >= 2 ) by Algebra*(1),
+        3 ( 4 > 0 ) by Algebra T
+    )
+
+    - any algebraic manipulation on a previous claim
+    - include all relevant line numbers in whatever order
+        (might be zero or 3+)
+```
+
 **Subst_<(find replace, line to rewrite)**
 ```
 Can only use when theres a non-algebra statement (ie and, or, imply)
@@ -321,5 +336,20 @@ claim2 rewrites claim1 by substituting all occurrences of
 
 If you change the value of variable "name", write that claim
 using:
+**Old(name)**
 
-Old(name)
+**Functions**
+```
+Function contracts - just under function definition:
+
+Contract(
+    Requires(
+        precondition,
+        precondition,
+    ),
+    Ensures(
+        postcondition,
+        postcondition
+    )
+)
+```

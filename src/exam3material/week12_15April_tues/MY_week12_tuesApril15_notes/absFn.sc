@@ -7,7 +7,12 @@ import org.sireum.justification.natded.prop._
 
 def absVal(numOrig: Z) : Z = {
   //what do we need here?
-
+  Contract(
+    Ensures(
+      Res[Z] >= 0,
+      Res[Z] == numOrig | Res[Z] == -1*numOrig
+      )
+  )
   var num: Z = numOrig
 
   //update num to be the absolute value of the input

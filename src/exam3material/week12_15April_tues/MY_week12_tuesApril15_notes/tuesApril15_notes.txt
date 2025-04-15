@@ -89,19 +89,20 @@ Example: tickets.sc
 Four steps:
 
 1) What should be done before calling the function?
-
+Prove the preconditions (Requires) based on what we pass to the function
 
 
 2) What can the function itself do with the preconditions?
-
+List them as premises
 
 
 3) What must the function do with the postconditions?
-
+Prove that the post condition was met
 
 4) What can the calling code do with the postcondition after
     the function returns? 
 
+    List as premise
 
 
 

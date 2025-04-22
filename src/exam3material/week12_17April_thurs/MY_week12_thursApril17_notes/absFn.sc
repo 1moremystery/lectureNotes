@@ -63,9 +63,13 @@ val ans: Z = absVal(x)
 
 Deduce(
   1 ( ans >= 0 ) by Premise, //first postcondition
-  2 ( ans == x | ans == -1 * x)
+  2 ( ans == x | ans == -1 * x) by Premise, //second postcondition
+
+
+  //NEED TO FINISH THIS
 )
 
+assert(ans == 4)
 
 //what should we be able to assert?
 //goal: ans is 4 (will finish on Thursday)

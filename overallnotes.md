@@ -353,3 +353,20 @@ Contract(
     )
 )
 ```
+
+```
+while (condition) {
+    Invariant(
+        Modifies(list all variables modified in loop),
+        invariant1,
+        invariant2,
+        ...
+    )
+
+    //use invariants as a premise
+
+    code for the loop
+
+    //prove the invariants still hold
+}
+```

@@ -60,12 +60,13 @@ Topics:
 - Predicate logic proofs emphasizing the existential quantifier
 - Recursive definitions (functions and sets)
 - Proof techniques, including:
-    - Mathematical induction
+    - Mathematical induction <- Study this
     - Direct (conditional) proofs
     - Contrapositive proofs 
     - Proof by contradiction
     - Proofs on sets
     --> know the formal definition of even/odd numbers
+        (even: 2k odd: 2k+1)
 - Programming logic, including:
     - assumes and asserts
     - Subst and Algebra
@@ -75,7 +76,7 @@ Topics:
         - Functions (plus recursive functions and calling functions)
         - Loops
     - Function contracts (meaning of preconditions/postconditions)
-    - Loop invariants
+    - Loop invariants <- Study this (said we won't have to do this)
 
 The exam will NOT involve programs that use modulus or division.
 
@@ -95,3 +96,25 @@ When doing programming logic:
 
 
 Now, we will work through practice exam 3
+
+
+Use Mathematical induction to prove 2^n = 2^(n+1)-2 if n is pos integers
+
+Base cases: Smallest number in domain n=1
+We have:
+    2^1 = 2
+
+and
+    2^(2)-2 = 2
+
+So base case holds
+
+Inductive step. We assume the Inductive hypothesis: 2^1 + 2^2... + 2^k = 2^(k+1) -2 for some k in our domain
+
+prove claim holds for k+1
+                    (Cant put 2^(k+1+1) here yet, cause we havent proved it)
+2^k + 2^(k+1) = (2^(k+1) - 2) + 2^(k+1) (Inductive step + next thing. Substitute in what we've already proved)
+2^k + 2^(k+1) = 2(2^(k+1)) - 2
+2^k + 2^(k+1) = 2^((k+1)+1) - 2
+
+Thus claim holds

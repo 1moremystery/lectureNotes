@@ -21,7 +21,7 @@ def mult(x: Z, y: Z): Z = {
   Deduce(
     1 ( total == 0 ) by Premise,
     2 ( i == 0 ) by Premise,
-    3 ( total == i*x ) by Algebra(1,2) //proves invariant holds before loop
+    3 ( total == i*x ) by Algebra*(1,2) //proves invariant holds before loop
   )
 
   //assert that invariant holds before loop begins
@@ -37,7 +37,7 @@ def mult(x: Z, y: Z): Z = {
     total = total + x
 
     Deduce(
-      1 ( total = Old(total) + x ) by Premise, //from assignment
+      1 ( total == Old(total) + x ) by Premise, //from assignment
       2 ( i != y ) by Premise, //loop condition is true
       3 ( Old(total) == i*x ) by Premise, //loop invariant was true
                               //at beginning of iteration, total has since changed
@@ -62,7 +62,15 @@ def mult(x: Z, y: Z): Z = {
 
   //STOPPED HERE
   //still need to prove the postcondition
+  Deduce(
+    1 (total == i*x) by Premise, //varient is true
+    2 (!(i != y)) by Premise, //loop condition is false
+    3 (i == y) by Algebra*(2),
+    4 (total == y*x) by Algebra*(1,3),
+    5 (total == x*y) by Algebra*(4)
+  )
 
+  assert(total == x*y)
   return total
 }
 
@@ -71,6 +79,10 @@ def mult(x: Z, y: Z): Z = {
 val a: Z = 5
 val b: Z = 4
 
+Deduce(
+  1 (b ==4) by Premise,
+  2 (b >= 0) by Algebra*(1)
+)
 var ans: Z = mult(a, b)
 
 //what do we want to assert that ans is?

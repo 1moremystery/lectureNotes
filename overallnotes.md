@@ -337,24 +337,31 @@ claim2 rewrites claim1 by substituting all occurrences of
 If you change the value of variable "name", write that claim
 using:
 **Old(name)**
-
+## Functions and Loops
 **Functions**
-```
 Function contracts - just under function definition:
-
-Contract(
-    Requires(
-        precondition,
-        precondition,
-    ),
-    Ensures(
-        postcondition,
-        postcondition
+```
+def foo():Z = {
+    Contract(
+        Requires(
+            precondition,
+            precondition,
+        ),
+        Ensures(
+            postcondition,
+            postcondition
+        )
     )
-)
+    //code for function
+}
+//must prove precondition before function call
+//then can use postconditions as premises after function call
 ```
 
 ```
+Deduce(
+    //prove invarients before loop
+)
 while (condition) {
     Invariant(
         Modifies(list all variables modified in loop),
@@ -363,10 +370,35 @@ while (condition) {
         ...
     )
 
-    //use invariants as a premise
+    Deduce(
+        //use invariants as a premise
+    )
 
     code for the loop
 
-    //prove the invariants still hold
+    Deduce(
+        //prove the invariants still hold
+    )
 }
+//after loop, can have !(condition) as premise
 ```
+
+## Sequences
+
+```
+∀ (lower until upper)(k => some statement about seq(k) )
+    (does NOT include upper)
+
+∀ (lower to upper)(k => some statement about seq(k) )
+    (DOES include upper)
+
+**Example**
+∀ (0 until seq.size)(k => seq(k) == 0 )
+    all elements in seq equal 0
+```
+```
+∃ (0 until seq.size)(k => seq(k) == 0 )
+    there is some element in seq that equals 0
+```
+
+Use "In(seq)" refers to the state of a sequence at the beginning of the function call

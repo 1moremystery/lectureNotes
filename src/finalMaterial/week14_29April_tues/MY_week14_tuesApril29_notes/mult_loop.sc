@@ -1,5 +1,5 @@
 // #Sireum #Logika
-//@Logika: --manual
+
 
 import org.sireum._
 import org.sireum.justification._

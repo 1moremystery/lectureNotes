@@ -1,7 +1,7 @@
 Exam 3 results.
 
-High: ??/100
-Average: ??/100
+High: 103/100
+Average: 78/100
 
 A (90-100): ?? students
 B (80-89): ?? students

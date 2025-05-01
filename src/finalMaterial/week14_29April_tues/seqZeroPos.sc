@@ -8,14 +8,11 @@ def makePosZero(seq: ZS, pos: Z): Unit = {
   //what do we want to require of seq?
   //how can we describe how seq will change?
   Contract(
-    Requires(
-      pos >= 0,
-      seq.size > pos
-    ),
+    Requires(pos >= 0, pos < seq.size ),
     Modifies(seq),
     Ensures(
       seq(pos) == 0,
-      ∀(0 until seq.size)(k => (k != pos __>: seq(k) == In(seq)(k)))
+      ∀(0 until seq.size)(k => (k != pos) __>: (seq(k) == In(seq)(k))   )
     )
   )
 

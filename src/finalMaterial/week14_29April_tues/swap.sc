@@ -6,17 +6,18 @@ import org.sireum._
 def swap(nums: ZS, pos1: Z, pos2: Z): Unit = {
   //how to write?
   Contract(
-    Requires(
-      pos1>=0, pos2>=0,
-      nums.size > pos1, nums.size > pos2
-    ),
+    Requires(pos1 >= 0, pos1 < nums.size, pos2 >= 0, pos2 < nums.size),
     Modifies(nums),
     Ensures(
       nums(pos1) == In(nums)(pos2),
-      nums(pos2) == In(nums)(pos1),
-      ∀(0 until nums.size)(k => k != pos1 & k != pos2 __>: nums(k) == In(nums)(k))
+      nums(pos2) == In(num)(pos1),
+      ∀(0 until nums.size)(k => (k != pos1 && k != pos2) __>: (nums(k) == In(nums)(k))   )
     )
   )
+
+  var temp: Z = nums(pos1)
+  nums(pos1) = nums(pos2)
+  nums(pos2) = temp
 
   var temp: Z = nums(pos1)
   nums(pos1) = nums(pos2)

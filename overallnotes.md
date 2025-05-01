@@ -343,6 +343,9 @@ Function contracts - just under function definition:
 ```
 def foo():Z = {
     Contract(
+        Modifies(
+            variables that are changed
+        )
         Requires(
             precondition,
             precondition,

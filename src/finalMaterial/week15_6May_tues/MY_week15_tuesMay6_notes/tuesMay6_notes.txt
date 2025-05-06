@@ -30,15 +30,16 @@ loops while i < seq.size/2
 
 
 What does it mean to be reversed?
-
+    for all k, seq(k) == In(seq)(k) -k -1
 
 
 
 After i iterations of the loop:
     what has changed?
-
+        first i pos == original last i pos
+        last i pos == original first i pos
     what is the same? 
-
+        anythin between the first and last i pos
 
 
 ///////////////////////////////////
@@ -80,29 +81,38 @@ Global invariants:
 Functions:
     setSpeed(speed: Z)
     turnOn()
+    turnOff()
     makeRotate()
     stopRotate()
 
 
 
-    Fan on, speed 3, rotate on. Can we call setSpeed(2)?
+    Fan on, speed 3, rotate on. Can we call setSpeed(2)? no
 
-    Fan off, speed 0, rotate off. Can we call setSpeed(1)?
+    Fan off, speed 0, rotate off. Can we call setSpeed(1)? yes
 
-    Fan on, speed 2, rotate off. Can we call setSpeed(0)?
+    Fan on, speed 2, rotate off. Can we call setSpeed(0)? no
 
-    Fan on, speed 3, rotate on. Can we call setSpeed(4)?
+    Fan on, speed 3, rotate on. Can we call setSpeed(4)? yes
 
-    Fan on, speed 3, rotate on. Can we call makeRotate()?
+    Fan on, speed 3, rotate on. Can we call makeRotate()? no it already on
 
-    Fan on, speed 5, rotate off. Can we call setSpeed(5)?
+    Fan on, speed 5, rotate off. Can we call setSpeed(5)? no it alerady 5
 
-    Fan on, speed 5, rotate off. Can we call setSpeed(6)?
+    Fan on, speed 5, rotate off. Can we call setSpeed(6)? no it beyond allowable speed
 
-    Fan on, speed 1, rotate off. Can we call setSpeed(0)?
+    Fan on, speed 1, rotate off. Can we call setSpeed(0)? yes
 
 setSpeed(speed: Z) preconditions?
-
+    requires( 
+        speed == curSpeed+1 || speed == curSpeed -1,
+        speed >= 0,
+        speed <= 5,
+        rotate == true -> speed >= 3
+    ),
+    ensures(
+        curSpeed == speed
+    )
 
 
 
@@ -173,15 +183,18 @@ Review: global invariants.
 If a file has global invariants.
 
 --> when do they need to hold?
-
+before and after each function calls
 
 --> how to write function contracts for function that change global variables?
 
 requires?
+Something that doesnt break the varients
 
 modifies?
+Any global variables or variables passed in
 
 ensures?
+how the global variables are changed
 
 //////////////////////////
 

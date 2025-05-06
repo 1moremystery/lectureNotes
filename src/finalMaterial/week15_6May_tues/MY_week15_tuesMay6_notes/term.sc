@@ -13,6 +13,8 @@ def mult(x: Z, y: Z): Z = {
     var count: Z = 0
 
     //measure of work? (how many more iterations left?)
+    //initally, y inteations left
+    //y - count is measure of work
 
     while (count < y) {
         Invariant(
@@ -35,7 +37,7 @@ def mult(x: Z, y: Z): Z = {
 def collatz(n: Z): Z = {
     Contract(
         Requires(n > 0),
-        //Ensures(Res[Z] == 1)
+        Ensures(Res[Z] == 1)
     )
 
     //what if n is 52?

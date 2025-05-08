@@ -1,19 +1,43 @@
-In the program below, complete the function contract and loop invariant block so the
-program (including the assert at the bottom) would be verified in Logika's auto mode.
+// #Sireum #Logika
+
+import org.sireum._
+
+//In the program below, complete the function contract and loop invariant block so the
+//program (including the assert at the bottom) would be verified in Logika's auto mode.
 
 def addToNeg(a: ZS, pos: Z): Unit = {
     Contract(
         //COMPLETE THE FUNCTION CONTRACT
-        
-
+        Requires(
+            pos >=0,
+            pos < a.size
+            //Dont need a.size > 0 because the others imply
+        ),
+        Modifies(a),
+        Ensures(
+            ∀(pos until a.size)(k => In(a)(k) < 0 -> a(k) == In(a)(k) + 1), //ones that change in range
+            ∀(0 until pos)(k => a(k) == In(a)(k)), //ones out of range
+            ∀(pos until a.size)(k => In(a)(k) >= 0 -> a(k) == In(a)(k)) //ones that didnt change in range
+        )
     )
     var i: Z = pos
 
     while (i < a.size) {
         Invariant(
             //COMPLETE THE LOOP INVARIANT BLOCK
-            
-            
+            Modifies(a,i),
+            //Bound loop value
+            i >= pos,
+            i <= a.size,
+            //Size of array didnt change
+            In(a).size == a.size,
+
+            //similar to function postconditions
+            //but changing a.size to loop variable
+            ∀(pos until i)(k => In(a)(k) < 0 -> a(k) == In(a)(k) + 1), //ones that change in range
+            ∀(0 until pos)(k => a(k) == In(a)(k)), //ones out of range
+            ∀(pos until i)(k => In(a)(k) >= 0 -> a(k) == In(a)(k)), //ones that didnt change in range
+            ∀(i until a.size)(k => In(a)(k) >= 0 -> a(k) == In(a)(k)) //ones that didnt change past range
         )
 
         if (a(i) < 0) {

@@ -10,18 +10,20 @@ def diff(big: Z, small: Z): Z = {
     )
 
     //PREMISES:
-    big >= small
+    //big >= small (precondition)
 
 
     var count: Z = 0
     var cur: Z = big
 
     //PREMISES:
-
+    // count == 0
+    // cur == big
+    // cur >= small
 
 
     //SHOW:
-
+    // count == (big - cur)
 
 
     while (cur != small) {
@@ -31,23 +33,25 @@ def diff(big: Z, small: Z): Z = {
         )
 
         //PREMISES:
-
+        // cur != small (loop condition)
+        // count == (big-cur) (loop invariant)
+        // big >= small (precondition)
 
 
         cur = cur - 1
         count = count + 1
 
         //SHOW:
-
+        // count == (big - cur)
 
     }
 
     //PREMISES:
-
-
-
+    // !(cur != small) (loop condition false)
+    // count == big - cur (loop invariant)
+    // big >= small (preconditon)
     //SHOW:
-
+    //count == big-small (postcondition)
 
 
     return count
